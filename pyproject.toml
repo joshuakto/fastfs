@@ -6,6 +6,8 @@ authors = ["jc_nana <joshuakt.mit@gmail.com>"]
 readme = "README.md"
 packages = [{include = "fastfs", from = "src"}]
 
+[tool.poetry.scripts]
+fastfs = 'fastfs.main:main'
 
 [tool.poetry.dependencies]
 python = "^3.10"

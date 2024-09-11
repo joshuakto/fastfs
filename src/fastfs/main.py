@@ -7,16 +7,7 @@ from fastfs.services.file_service import handle_directory
 from fastfs.views.renderers import render_main_page
 from importlib import resources
 
-
 settings = get_settings()
-
-# Override base_dir if provided as command-line argument
-if len(sys.argv) > 1:
-    settings.base_dir = sys.argv[1]
-
-print(f"Serving {settings.base_dir}")
-
-
 app = FastHTML(hdrs=(
     Link(rel="stylesheet", href="/app.css", type="text/css"),
     Link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css')
@@ -50,4 +41,15 @@ def get(path: str = '', search: str = '', preview: bool = False, hx_request: boo
         else:
             return render_main_page(path, file_list)
 
-serve(port=settings.port)
+def main():
+
+    # Override base_dir if provided as command-line argument
+    if len(sys.argv) > 1:
+        settings.base_dir = sys.argv[1]
+
+    print(f"Serving {settings.base_dir}")
+
+    serve(port=settings.port)
+
+if __name__ == "__main__":
+    main()
