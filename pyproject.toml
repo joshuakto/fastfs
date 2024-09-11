@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "fs"
+name = "python-fastfs"
 version = "0.1.0"
 description = ""
 authors = ["jc_nana <joshuakt.mit@gmail.com>"]
